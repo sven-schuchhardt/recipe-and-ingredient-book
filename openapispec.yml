@@ -1,0 +1,915 @@
+openapi: 3.1.0
+x-stoplight:
+  id: a2o3q5dixw22w
+info:
+  title: openspecapi
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /ingredients/find:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      operationId: get-ingredients-find
+      parameters: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    createdAt:
+                      type: string
+                    updatedAt:
+                      type: string
+                    ingredientName:
+                      type: string
+                    ingredientDescription:
+                      type: string
+                    ingredientPictureLink:
+                      type: string
+                x-examples:
+                  Example 1:
+                    - id: 5cb36bb8-85f5-44c1-b77e-36c961cd1f0b
+                      createdAt: '2022-11-25T11:38:04.000Z'
+                      updatedAt: '2022-11-25T11:38:04.000Z'
+                      ingredientName: chicken
+                      ingredientDescription: one nice chicken
+                      ingredientPictureLink: www.chicken.de
+                    - id: eab11593-268a-4410-b1a2-a121a55111e8
+                      createdAt: '2022-11-25T11:38:32.000Z'
+                      updatedAt: '2022-11-25T11:38:32.000Z'
+                      ingredientName: egg
+                      ingredientDescription: L Egg
+                      ingredientPictureLink: www.egg-l.de
+              examples:
+                Example 1:
+                  value:
+                    - id: 5cb36bb8-85f5-44c1-b77e-36c961cd1f0b
+                      createdAt: '2022-11-25T11:38:04.000Z'
+                      updatedAt: '2022-11-25T11:38:04.000Z'
+                      ingredientName: chicken
+                      ingredientDescription: one nice chicken
+                      ingredientPictureLink: www.chicken.de
+                    - id: eab11593-268a-4410-b1a2-a121a55111e8
+                      createdAt: '2022-11-25T11:38:32.000Z'
+                      updatedAt: '2022-11-25T11:38:32.000Z'
+                      ingredientName: egg
+                      ingredientDescription: L Egg
+                      ingredientPictureLink: www.egg-l.de
+        '400':
+          description: Bad Request
+  '/ingredients/findByName/{name}':
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    createdAt:
+                      type: string
+                    updatedAt:
+                      type: string
+                    ingredientName:
+                      type: string
+                    ingredientDescription:
+                      type: string
+                    ingredientPictureLink:
+                      type: string
+                x-examples:
+                  Example 1:
+                    - id: eab11593-268a-4410-b1a2-a121a55111e8
+                      createdAt: '2022-11-25T11:38:32.000Z'
+                      updatedAt: '2022-11-25T11:38:32.000Z'
+                      ingredientName: egg
+                      ingredientDescription: L Egg
+                      ingredientPictureLink: www.egg-l.de
+                    - id: 5c5e0fd8-22dd-481b-a437-e38cf9780731
+                      createdAt: '2022-11-25T11:38:24.000Z'
+                      updatedAt: '2022-11-25T11:44:40.000Z'
+                      ingredientName: egg
+                      ingredientDescription: M Egg
+                      ingredientPictureLink: www.egg-m.de
+        '400':
+          description: Bad Request
+      operationId: get-ingredients-findByName
+      parameters: []
+      description: ''
+    parameters:
+      - schema:
+          type: string
+        name: name
+        in: path
+        required: true
+  /ingredients/create:
+    post:
+      summary: ''
+      operationId: post-ingredients-create
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  createdAt:
+                    type: string
+                  updatedAt:
+                    type: string
+                  ingredientName:
+                    type: string
+                  ingredientDescription:
+                    type: string
+                  ingredientPictureLink:
+                    type: string
+                x-examples:
+                  Example 1:
+                    id: 0d087968-1cf7-4821-98b3-ad68a3e77afe
+                    createdAt: '2022-11-26T16:00:46.675Z'
+                    updatedAt: '2022-11-26T16:00:46.675Z'
+                    ingredientName: stoplighstudio
+                    ingredientDescription: atopligh food
+                    ingredientPictureLink: www.stop.de
+              examples:
+                Example 1:
+                  value:
+                    id: string
+                    createdAt: string
+                    updatedAt: string
+                    ingredientName: string
+                    ingredientDescription: string
+                    ingredientPictureLink: string
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ingredientName:
+                  type: string
+                ingredientDescription:
+                  type: string
+                ingredientPictureLink:
+                  type: string
+              x-examples:
+                Example 1:
+                  ingredientName: stoplighstudio
+                  ingredientDescription: atopligh food
+                  ingredientPictureLink: www.stop.de
+            examples:
+              Example 1:
+                value:
+                  ingredientName: stoplighstudio
+                  ingredientDescription: atopligh food
+                  ingredientPictureLink: www.stop.de
+  '/ingredients/ingredientUpdate/{id}':
+    put:
+      summary: ''
+      operationId: put-ingredients-ingredientUpdate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  createdAt:
+                    type: string
+                  updatedAt:
+                    type: string
+                  ingredientName:
+                    type: string
+                  ingredientDescription:
+                    type: string
+                  ingredientPictureLink:
+                    type: string
+                x-examples:
+                  Example 1:
+                    id: 5cb36bb8-85f5-44c1-b77e-36c961cd1f0b
+                    createdAt: '2022-11-25T11:38:04.000Z'
+                    updatedAt: '2022-11-26T16:42:57.969Z'
+                    ingredientName: chicken
+                    ingredientDescription: one nice chicken
+                    ingredientPictureLink: www.chicken.de
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  ingredientName: test
+                  ingredientDescription: test
+                  ingredientPictureLink: test
+              properties:
+                ingredientName:
+                  type: string
+                ingredientDescription:
+                  type: string
+                ingredientPictureLink:
+                  type: string
+      description: ''
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  '/ingredients/ingredientDelete/{id}':
+    delete:
+      summary: ''
+      operationId: delete-ingredients-ingredientDelete
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+        '403':
+          description: Forbidden
+      parameters: []
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  /recipes/find:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RecipeEntity'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    message: No Recipes found
+      operationId: get-recipes-find
+      parameters: []
+      description: ''
+  '/recipes/findByName/{name}':
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                x-examples:
+                  Example 1:
+                    - id: ea817da2-57b5-40ba-912d-00b20952814c
+                      createdAt: '2022-11-25T11:53:08.000Z'
+                      updatedAt: '2022-11-25T11:53:08.000Z'
+                      recipeName: recipe_entity_name_test
+                      recipeDescription: recipe_entity_description
+                      recipePictureLink: recipe_pictureLink
+                      recipeSteps:
+                        - rühren
+                        - test
+                      recipeRaiting: 5
+                      ingredients:
+                        - recipe: ea817da2-57b5-40ba-912d-00b20952814c
+                          ingredient: 5c5e0fd8-22dd-481b-a437-e38cf9780731
+                          amount: 10
+                          unit: stück_M
+                        - recipe: ea817da2-57b5-40ba-912d-00b20952814c
+                          ingredient: 5cb36bb8-85f5-44c1-b77e-36c961cd1f0b
+                          amount: 500
+                          unit: gr
+                        - recipe: ea817da2-57b5-40ba-912d-00b20952814c
+                          ingredient: eab11593-268a-4410-b1a2-a121a55111e8
+                          amount: 3
+                          unit: stück_L
+                items:
+                  $ref: '#/components/schemas/RecipeEntity'
+        '400':
+          description: Bad Request
+      operationId: get-recipes-findByName
+      parameters: []
+      description: ''
+    parameters:
+      - schema:
+          type: string
+        name: name
+        in: path
+        required: true
+  /recipes/create:
+    post:
+      summary: ''
+      operationId: post-recipes-create
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  createdAt:
+                    type: string
+                  updatedAt:
+                    type: string
+                  ingredients:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        recipe:
+                          type: string
+                        ingredient:
+                          type: string
+                        amount:
+                          type: integer
+                        unit:
+                          type: string
+                  recipeName:
+                    type: string
+                  recipeDescription:
+                    type: string
+                  recipePictureLink:
+                    type: string
+                  recipeSteps:
+                    type: array
+                    items:
+                      type: string
+                  recipeRaiting:
+                    type: integer
+                x-examples:
+                  Example 1:
+                    id: bfd29ce1-83a8-482b-bef5-043584fec5bd
+                    createdAt: '2022-11-26T16:45:30.170Z'
+                    updatedAt: '2022-11-26T16:45:30.170Z'
+                    ingredients:
+                      - recipe: bfd29ce1-83a8-482b-bef5-043584fec5bd
+                        ingredient: 5cb36bb8-85f5-44c1-b77e-36c961cd1f0b
+                        amount: 500
+                        unit: gr
+                      - recipe: bfd29ce1-83a8-482b-bef5-043584fec5bd
+                        ingredient: eab11593-268a-4410-b1a2-a121a55111e8
+                        amount: 2
+                        unit: stück_L
+                      - recipe: bfd29ce1-83a8-482b-bef5-043584fec5bd
+                        ingredient: 5c5e0fd8-22dd-481b-a437-e38cf9780731
+                        amount: 10
+                        unit: stück_M
+                    recipeName: chicken
+                    recipeDescription: Test
+                    recipePictureLink: www.test.de
+                    recipeSteps:
+                      - rühren
+                      - test
+                    recipeRaiting: 5
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  recipeName: chicken
+                  recipeDescription: Test
+                  recipePictureLink: www.test.de
+                  recipeSteps:
+                    - rühren
+                    - test
+                  recipeRating: 5
+                  ingredients:
+                    - ingredientId: 5cb36bb8-85f5-44c1-b77e-36c961cd1f0b
+                      unit: gr
+                      amount: 500
+                    - ingredientId: eab11593-268a-4410-b1a2-a121a55111e8
+                      unit: stück_L
+                      amount: 2
+                    - ingredientId: 5c5e0fd8-22dd-481b-a437-e38cf9780731
+                      unit: stück_M
+                      amount: 10
+              properties:
+                recipeName:
+                  type: string
+                recipeDescription:
+                  type: string
+                recipePictureLink:
+                  type: string
+                recipeSteps:
+                  type: array
+                  items:
+                    type: string
+                recipeRating:
+                  type: integer
+                ingredients:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      ingredientId:
+                        type: string
+                      unit:
+                        type: string
+                      amount:
+                        type: integer
+                    required:
+                      - ingredientId
+                      - unit
+                      - amount
+              required:
+                - recipeName
+                - recipeDescription
+                - recipePictureLink
+                - recipeSteps
+                - recipeRating
+                - ingredients
+  '/recipes/recipeUpdate/{id}':
+    put:
+      summary: ''
+      operationId: put-recipes-recipeUpdate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  createdAt:
+                    type: string
+                  updatedAt:
+                    type: string
+                  recipeName:
+                    type: string
+                  recipeDescription:
+                    type: string
+                  recipePictureLink:
+                    type: string
+                  recipeSteps:
+                    type: array
+                    items:
+                      type: string
+                  recipeRaiting:
+                    type: integer
+                x-examples:
+                  Example 1:
+                    id: ea817da2-57b5-40ba-912d-00b20952814c
+                    createdAt: '2022-11-25T11:53:08.000Z'
+                    updatedAt: '2022-11-26T16:50:31.276Z'
+                    recipeName: big_recipe_test
+                    recipeDescription: recipe_entity_description
+                    recipePictureLink: recipe_pictureLink
+                    recipeSteps:
+                      - rühren
+                      - test
+                    recipeRaiting: 5
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                recipeName:
+                  type: array
+                  items:
+                    type: string
+                recipeDescription:
+                  type: string
+                recipePictureLink:
+                  type: string
+                recipeRating:
+                  type: integer
+              x-examples:
+                Example 1:
+                  recipeName:
+                    - test
+                    - test
+                  recipeDescription: test
+                  recipePictureLink: test
+                  recipeRating: 3
+      parameters: []
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  '/recipes/ingredientUpdate/{id}':
+    put:
+      summary: ''
+      operationId: put-recipes-ingredientUpdate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    recipe:
+                      type: string
+                    ingredient:
+                      type: string
+                    amount:
+                      type: integer
+                    unit:
+                      type: string
+                x-examples:
+                  Example 1:
+                    - recipe: ea817da2-57b5-40ba-912d-00b20952814c
+                      ingredient: 5cb36bb8-85f5-44c1-b77e-36c961cd1f0b
+                      amount: 2
+                      unit: gr
+                    - recipe: ea817da2-57b5-40ba-912d-00b20952814c
+                      ingredient: 5c5e0fd8-22dd-481b-a437-e38cf9780731
+                      amount: 10
+                      unit: spotlight_unit
+        '400':
+          description: Bad Request
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ingredients:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      ingredientId:
+                        type: string
+                      amount:
+                        type: integer
+                      unit:
+                        type: string
+              x-examples:
+                Example 1:
+                  ingredients:
+                    - ingredientId: 5cb36bb8-85f5-44c1-b77e-36c961cd1f0b
+                      amount: 2
+                      unit: r
+                    - ingredientId: 5c5e0fd8-22dd-481b-a437-e38cf9780731
+                      amount: 4
+                      unit: spotlight_unit
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  '/recipes/ingredientAdd/{id}':
+    put:
+      summary: ''
+      operationId: put-recipes-ingredientAdd
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  createdAt:
+                    type: string
+                  updatedAt:
+                    type: string
+                  recipeName:
+                    type: string
+                  recipeDescription:
+                    type: string
+                  recipePictureLink:
+                    type: string
+                  recipeSteps:
+                    type: array
+                    items:
+                      type: string
+                  recipeRaiting:
+                    type: integer
+                  ingredients:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        recipe:
+                          type: string
+                        ingredient:
+                          type: string
+                        amount:
+                          type: integer
+                        unit:
+                          type: string
+                x-examples:
+                  Example 1:
+                    id: ea817da2-57b5-40ba-912d-00b20952814c
+                    createdAt: '2022-11-25T11:53:08.000Z'
+                    updatedAt: '2022-11-26T16:50:31.000Z'
+                    recipeName: big_recipe_test
+                    recipeDescription: recipe_entity_description
+                    recipePictureLink: recipe_pictureLink
+                    recipeSteps:
+                      - rühren
+                      - test
+                    recipeRaiting: 5
+                    ingredients:
+                      - recipe: ea817da2-57b5-40ba-912d-00b20952814c
+                        ingredient: 5cb36bb8-85f5-44c1-b77e-36c961cd1f0b
+                        amount: 202
+                        unit: add_for_spotlight
+                      - recipe: ea817da2-57b5-40ba-912d-00b20952814c
+                        ingredient: 5c5e0fd8-22dd-481b-a437-e38cf9780731
+                        amount: 909
+                        unit: second_add for_spotlight_unit
+        '400':
+          description: Bad Request
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ingredients:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      ingredientId:
+                        type: string
+                      amount:
+                        type: integer
+                      unit:
+                        type: string
+              x-examples:
+                Example 1:
+                  ingredients:
+                    - ingredientId: 5cb36bb8-85f5-44c1-b77e-36c961cd1f0b
+                      amount: 202
+                      unit: add_for_spotlight
+                    - ingredientId: 5c5e0fd8-22dd-481b-a437-e38cf9780731
+                      amount: 909
+                      unit: second_add for_spotlight_unit
+      description: ''
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  '/recipes/ingredientDelete/{id}':
+    delete:
+      summary: ''
+      operationId: delete-recipes-ingredientDelete
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    message: Ingredients have been deleted
+        '400':
+          description: Bad Request
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ingredients:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      ingredientId:
+                        type: string
+              x-examples:
+                Example 1:
+                  ingredients:
+                    - ingredientId: 5cb36bb8-85f5-44c1-b77e-36c961cd1f0b
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  '/recipes/{id}':
+    delete:
+      summary: ''
+      operationId: delete-recipes
+      responses:
+        '204':
+          description: No Content
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    message: test
+        '400':
+          description: Bad Request
+      parameters: []
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  '/recipes/nutritionInfo/{nutrition}':
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    message: protein
+      operationId: get-recipes-nutritionInfo
+    parameters:
+      - schema:
+          type: string
+        name: nutrition
+        in: path
+        required: true
+  '/recipes/findRecipeFromIngredient/{id}':
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: Bad Request
+      operationId: get-recipes-findRecipeFromIngredient
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+components:
+  schemas:
+    BaseEntity:
+      title: BaseEntity
+      x-stoplight:
+        id: mjwvaovrxhh3l
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        createdAt:
+          type: string
+          format: date
+        updateAt:
+          type: string
+          format: date
+    IngredientEntity:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        createdAt:
+          type: string
+          format: date
+        updatedAt:
+          type: string
+          format: date
+        ingredientName:
+          type: string
+        ingredientDescription:
+          type: string
+        ingredientPictureLink:
+          type: string
+    RecipeEntity:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        createdAt:
+          type: string
+          format: date
+        updatedAt:
+          type: string
+          format: date
+        recipeName:
+          type: string
+        recipeDescription:
+          type: string
+        recipePictureLink:
+          type: string
+        recipeRating:
+          type: number
+        recipeSteps:
+          type: array
+          items:
+            type: string
+        ingredients:
+          type: object
+          properties:
+            ingredient:
+              $ref: '#/components/schemas/IngredientEntity'
+    RecipeIngredientEntity:
+      title: RecipeIngredientEntity
+      x-stoplight:
+        id: i9loh1tn4qr0q
+      type: object
+      properties:
+        recipe:
+          $ref: '#/components/schemas/RecipeEntity'
+        ingredient:
+          $ref: '#/components/schemas/IngredientEntity'
+        amount:
+          type: number
+        unit:
+          type: string

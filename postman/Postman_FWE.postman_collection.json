@@ -1,0 +1,287 @@
+{
+	"info": {
+		"_postman_id": "3bbf8cfb-5323-4c28-a654-9dfc29e57207",
+		"name": "Postman_FWE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24642208"
+	},
+	"item": [
+		{
+			"name": "recipe.controller",
+			"item": [
+				{
+					"name": "/find",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "/findByName/:name",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "/recipes/nutritionInfo/:nutrition",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "/create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"recipeName\": \"ChickenAndRice\",\r\n    \"recipeDescription\": \"~healthy food\",\r\n    \"recipePictureLink\": \"www.food.de\",\r\n    \"recipeRating\": 3 ,\r\n    \"recipeSteps\":[\"backen\",\"kochen\"],\r\n    \"ingredients\":[\r\n        {\r\n            \"ingredientId\": \"a7cab1a8-a6ad-4a23-b19f-442f2ae4a78b\",\r\n            \"amount\":  500,\r\n            \"unit\": \"gr\"\r\n        },\r\n        {\r\n            \"ingredientId\": \"b3797d69-6bc8-4a87-99b2-907f7f112ab9\",\r\n            \"amount\":  2,\r\n            \"unit\": \"kg\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/recipes/create",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"recipes",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/recipeUpdate/:id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"recipeDescription\": \"updated_description\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/recipes//recipeUpdate/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"recipes",
+								"",
+								"recipeUpdate",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "0d0dbf68-a51c-43ae-a3be-d889225fca6d"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/ingredientUpdate/:id",
+					"request": {
+						"method": "PUT",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "/ingredientAdd/:id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ingredients\": [\r\n        {\r\n            \"ingredientId\": \"5555e2b0-b322-4481-a72a-f7b1425b70db\",\r\n            \"amount\": 10,\r\n            \"unit\": \"Stück\"\r\n        },\r\n        {\r\n             \"ingredientId\": \"ff896fd1-9b3e-4149-90cb-cc1dc1cb65e1\",\r\n            \"amount\": 999999,\r\n            \"unit\": \"Liter\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/recipes/ingredientAdd/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"recipes",
+								"ingredientAdd",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "0d0dbf68-a51c-43ae-a3be-d889225fca6d"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/ingredientDelete/:id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ingredients\": [\r\n        {\r\n            \"ingredientId\": \"5555e2b0-b322-4481-a72a-f7b1425b70db\"\r\n        },\r\n        {\r\n            \"ingredientId\": \"ff896fd1-9b3e-4149-90cb-cc1dc1cb65e1\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/recipes//ingredientDelete/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"recipes",
+								"",
+								"ingredientDelete",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "0d0dbf68-a51c-43ae-a3be-d889225fca6d"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/recipes/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"recipes",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "0d0dbf68-a51c-43ae-a3be-d889225fca6d"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ingredient.controller",
+			"item": [
+				{
+					"name": "/ingredients/find",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "/findByName/:name",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "/ingredientUpdate/:id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ingredientDescription\": \"updated_description\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/ingredients/ingredientUpdate/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ingredients",
+								"ingredientUpdate",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "c7b3985f-d5bf-4f78-9fd7-38c7aea871a5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/ingredientDelete/:id",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
